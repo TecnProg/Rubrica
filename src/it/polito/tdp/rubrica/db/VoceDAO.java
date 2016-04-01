@@ -1,4 +1,4 @@
-package it.polito.rubrica.db;
+package it.polito.tdp.rubrica.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

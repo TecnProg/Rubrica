@@ -2,7 +2,7 @@ package it.polito.tdp.rubrica.model;
 
 import java.util.*;
 
-import it.polito.rubrica.db.VoceDAO;
+import it.polito.tdp.rubrica.db.VoceDAO;
 
 /** 
  * Rappresenta l'insieme di tutte le voci della rubrica
