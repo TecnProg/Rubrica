@@ -12,10 +12,8 @@ import it.polito.tdp.rubrica.db.VoceDAO;
  */
 public class RubricaModel {
 
-	private List <VoceRubrica> rubrica;
 	
 	public RubricaModel(){
-		this.rubrica= new ArrayList<VoceRubrica>();
 	}
 	
 	/** 
@@ -49,8 +47,11 @@ public class RubricaModel {
 	}
 	
 	
-	public List<VoceRubrica> getRubrica() {
-		return rubrica;
+	public List<String> getAllNome() {
+		VoceDAO dao = new VoceDAO();
+		return dao.elencoNomi();
+		
+		
 	}
 
 	public static void main(String [] args)
@@ -71,5 +72,7 @@ public class RubricaModel {
 
 
 	}
+
+	
 	
 }

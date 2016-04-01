@@ -70,6 +70,11 @@ public class RubricaController {
     	}
     }
 
+    private void aggiornaTendina() {
+    	comboBox.getItems().clear() ;
+    	comboBox.getItems().addAll(model.getAllNome());
+    	
+    }
     @FXML
     void doInserisci(ActionEvent event) {
     	
@@ -92,7 +97,7 @@ public class RubricaController {
     		else
     		{
     			lblStato.setText("Voce inserita");
-    			comboBox.getItems().add(nome);
+    			this.aggiornaTendina();
     		}
     	}
     	
@@ -108,11 +113,16 @@ public class RubricaController {
 
     @FXML
     void initialize() {
-        assert txtNome != null : "fx:id=\"txtNome\" was not injected: check your FXML file 'Rubrica.fxml'.";
-        assert txtEmail != null : "fx:id=\"txtEmail\" was not injected: check your FXML file 'Rubrica.fxml'.";
-        assert txtTelefono != null : "fx:id=\"txtTelefono\" was not injected: check your FXML file 'Rubrica.fxml'.";
-        assert bttCerca != null : "fx:id=\"bttCerca\" was not injected: check your FXML file 'Rubrica.fxml'.";
-        assert bttInserisci != null : "fx:id=\"bttInserisci\" was not injected: check your FXML file 'Rubrica.fxml'.";
+    	  assert txtNome != null : "fx:id=\"txtNome\" was not injected: check your FXML file 'Rubrica.fxml'.";
+          assert txtEmail != null : "fx:id=\"txtEmail\" was not injected: check your FXML file 'Rubrica.fxml'.";
+          assert txtTelefono != null : "fx:id=\"txtTelefono\" was not injected: check your FXML file 'Rubrica.fxml'.";
+          assert bttInserisci != null : "fx:id=\"bttInserisci\" was not injected: check your FXML file 'Rubrica.fxml'.";
+          assert comboBox != null : "fx:id=\"comboBox\" was not injected: check your FXML file 'Rubrica.fxml'.";
+          assert lblStato != null : "fx:id=\"lblStato\" was not injected: check your FXML file 'Rubrica.fxml'.";
 
+
+        
+        
+        
     }
 }

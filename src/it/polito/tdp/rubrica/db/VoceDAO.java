@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
+import java.util.List;
 
 import it.polito.tdp.rubrica.model.VoceRubrica;
 
@@ -76,6 +78,32 @@ import it.polito.tdp.rubrica.model.VoceRubrica;
 			return false;
 		}
 		
+		public List<String> elencoNomi()
+		{
+			List<String> nomi = new LinkedList<String>();
+			
+			try{	
+				Connection conn = DriverManager.getConnection(jdbcURL);
+				
+				Statement st = conn.createStatement();
+				
+				String sql= "Select nome From voce";				
+				ResultSet res = st.executeQuery(sql);
+				
+				while(res.next())
+				{
+					String nome = res.getString("nome");
+					nomi.add(nome);
+					
+				}
+				return nomi;
+			}
+		catch(SQLException e)
+			{
+				e.printStackTrace();
+			}
+			return null;
+		}
 		
 		
 
