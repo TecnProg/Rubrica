@@ -50,8 +50,33 @@ import it.polito.tdp.rubrica.model.VoceRubrica;
 		
 		public boolean addVoce(VoceRubrica v)
 		{
-			
+			try{	
+				Connection conn = DriverManager.getConnection(jdbcURL);
+				
+				Statement st = conn.createStatement();
+				
+				String sql= "INSERT INTO `rubrica`.`voce` (`nome`, `email`, `telefono`) VALUES ('"+v.getNome()+"', '"+v.getEmail()+"', '"+v.getTelefono()+"')";
+				
+				int res = st.executeUpdate(sql);
+				
+				if(res==1)
+				{
+					return true;
+				}
+				else
+				{	
+					conn.close();
+					return false;
+				}
+			}
+		catch(SQLException e)
+			{
+				e.printStackTrace();
+			}
+			return false;
 		}
+		
+		
 		
 
 

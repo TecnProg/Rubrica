@@ -28,12 +28,10 @@ public class RubricaModel {
 	 */
 	public boolean addVoce(VoceRubrica v)
 	{
-		if(rubrica.contains(v))
+		VoceDAO dao = new VoceDAO();
+		if(dao.findVoceByNome(v.getNome())!=null)
 			return false;
-		else{
-			rubrica.add(v);
-			return true;
-			}
+		return dao.addVoce(v);
 		
 	}
 	
