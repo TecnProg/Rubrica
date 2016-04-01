@@ -2,6 +2,8 @@ package it.polito.tdp.rubrica.model;
 
 import java.util.*;
 
+import it.polito.rubrica.db.VoceDAO;
+
 /** 
  * Rappresenta l'insieme di tutte le voci della rubrica
  * e i metodi per gestire tale insieme
@@ -43,12 +45,9 @@ public class RubricaModel {
 	 */
 	public VoceRubrica findVoceByNome(String nome)
 	{
-		for(VoceRubrica v : rubrica)
-		{
-			if(v.getNome().equals(nome))
-				return v;
-		}
-		return null;
+		VoceDAO dao= new VoceDAO();
+		VoceRubrica v = dao.findVoceByNome(nome);
+		return v;
 	}
 	
 	
